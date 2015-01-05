@@ -1,0 +1,10 @@
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/bitnami\/wamp\/apache2\/htdocs\/ambercase\/mod\/hypeLists\/sass\/lists\/stylesheet\.scss}line{font-family:\0000310}}
+.elgg-list-container > .elgg-pagination {
+  margin: 0 auto;
+  min-height: 0;
+  display: none;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/bitnami\/wamp\/apache2\/htdocs\/ambercase\/mod\/hypeLists\/sass\/lists\/stylesheet\.scss}line{font-family:\0000315}}
+.elgg-list-container > .elgg-list {
+  margin: 5px auto;
+}

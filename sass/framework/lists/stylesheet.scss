@@ -1,0 +1,14 @@
+@import "compass/css3"; // compass css3 helpers
+@import "../../../../../sass/global/variables";
+@import "variables";
+
+.elgg-list-container {
+	& > .elgg-pagination {
+		margin: 0 auto;
+		min-height: 0;
+		display: none;
+	}
+	& > .elgg-list {
+		margin: 5px auto;
+	}
+}
