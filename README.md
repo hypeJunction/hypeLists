@@ -76,6 +76,10 @@ $('.elgg-list').hypeList('fetchNewItems', pageIndex, goToPage);
 
 // Remove items from the list and reindex
 $('.elgg-list').hypeList('removeItems', $items);
+
+// Add new items to the list
+$('.elgg-list').hypeList('addFetchedItems', ajaxData);
+
 ```
 
 
