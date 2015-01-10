@@ -321,7 +321,7 @@ class ElggListQuery {
 			if (isset(self::$matamap) && in_array(self::$metamap[$metastring])) {
 				$map[$metastring] = self::$metamap[$metastring];
 			} else {
-				$id = add_metastring($metastring);
+				$id = elgg_get_metastring_id($metastring);
 				self::$metamap[$metastring] = $map[$metastring] = $id;
 			}
 		}
