@@ -6,7 +6,10 @@ use Exception;
 use stdClass;
 
 /**
- * Adds additional search query options to list options
+ * Helper class that constructs getter filter options
+ *
+ * @package    Elgg
+ * @subpackage hypeJunction\Lists
  */
 class ElggListQuery {
 
@@ -84,9 +87,10 @@ class ElggListQuery {
 
 	/**
 	 * Constructs a new query object
-	 * @param string $search_type	Valid search type
-	 * @param mixed $query			Query options
-	 * @param array $table_map		An alternative table mapping
+	 *
+	 * @param string $search_type Valid search type
+	 * @param mixed  $query       Query options
+	 * @param array  $table_map   An alternative table mapping
 	 */
 	function __construct($search_type = '', $query = '', $table_map = null) {
 
@@ -111,9 +115,9 @@ class ElggListQuery {
 	/**
 	 * Add/replace element in an options array
 	 *
-	 * @param string $key	Array key, e.g. 'wheres' or 'order_by'
-	 * @param mixed $value	New value
-	 * @param string $name	Unique name of the clause for array keys that take multiple options
+	 * @param string $key   Array key, e.g. 'wheres' or 'order_by'
+	 * @param mixed  $value New value
+	 * @param string $name  Unique name of the clause for array keys that take multiple options
 	 * @return ElggListQuery
 	 */
 	public function sqlAddOption($key = '', $value = '', $name = '') {
@@ -157,8 +161,9 @@ class ElggListQuery {
 
 	/**
 	 * Get an array of options suitable for ege* functions
-	 * @param array $options	Current options array
-	 * @return array			Filtered options array
+	 *
+	 * @param array $options Current options array
+	 * @return array Filtered options array
 	 */
 	public function sqlGetOptions($options = array()) {
 
@@ -306,7 +311,8 @@ class ElggListQuery {
 
 	/**
 	 * Metastring ID mapping
-	 * @param array $metastrings
+	 *
+	 * @param array $metastrings An array of metastrings
 	 * @return array
 	 */
 	public static function getMetaMap($metastrings = array()) {
@@ -324,6 +330,7 @@ class ElggListQuery {
 
 	/**
 	 * Join users table
+	 * @return ElggListQuery
 	 */
 	private function sqlJoinUsersTable() {
 		$e = $this->prefixes->entities;
@@ -337,6 +344,7 @@ class ElggListQuery {
 
 	/**
 	 * Join groups table
+	 * @return ElggListQuery
 	 */
 	private function sqlJoinGroupsTable() {
 		$e = $this->prefixes->entities;
@@ -350,6 +358,7 @@ class ElggListQuery {
 
 	/**
 	 * Join groups table
+	 * @return ElggListQuery
 	 */
 	private function sqlJoinObjectsTable() {
 		$e = $this->prefixes->entities;
@@ -363,6 +372,7 @@ class ElggListQuery {
 
 	/**
 	 * Join sites table
+	 * @return ElggListQuery
 	 */
 	private function sqlJoinSitesTable() {
 		$e = $this->prefixes->entities;
@@ -371,13 +381,14 @@ class ElggListQuery {
 			$this->options['joins'][$se] = "JOIN {$this->dbprefix}sites_entity $se ON $e.guid = $se.guid";
 		}
 		return $this;
-		return $this;
 	}
 
 	/**
 	 * Join metadata table
-	 * @param string $md	prefix_metadata table prefix
-	 * @param string $e		prefix_entities table prefix
+	 *
+	 * @param string $md prefix_metadata table alias
+	 * @param string $e  prefix_entities table alias
+	 * @return ElggListQuery
 	 */
 	private function sqlJoinMetadataTable($md = 'md', $e = null) {
 		if (!$e) {
@@ -392,8 +403,10 @@ class ElggListQuery {
 
 	/**
 	 * Join metastrings table on metadata name
-	 * @param string $msn		prefix_metastrings table prefix
-	 * @param string $md		prefix_metadata table prefix
+	 *
+	 * @param string $msn prefix_metastrings table alias
+	 * @param string $md  prefix_metadata table alias
+	 * @return ElggListQuery
 	 */
 	private function sqlJoinMetadataNameTable($msn = 'msn', $md = 'md') {
 
@@ -406,8 +419,10 @@ class ElggListQuery {
 
 	/**
 	 * Join metastrings table on metadata value
-	 * @param string $msv		prefix_metastrings table prefix
-	 * @param string $md		prefix_metadata table prefix
+	 *
+	 * @param string $msv prefix_metastrings table prefix
+	 * @param string $md  prefix_metadata table prefix
+	 * @return ElggListQuery
 	 */
 	private function sqlJoinMetadataValueTable($msv = 'msv', $md = 'md') {
 
@@ -421,8 +436,8 @@ class ElggListQuery {
 	/**
 	 * Returns a where clause for a search query.
 	 *
-	 * @param string $table		Prefix for table to search on
-	 * @param array $fields		Fields to match against
+	 * @param string $table  Prefix for table to search on
+	 * @param array  $fields Fields to match against
 	 * @return string
 	 */
 	function sqlGetWhereFulltextClause($table, $fields, $query, $use_fulltext = TRUE) {
@@ -476,10 +491,11 @@ class ElggListQuery {
 
 	/**
 	 * Get LIKE clauses
-	 * @param string $table
-	 * @param array $fields
-	 * @param string $query
-	 * @param string $glue
+	 *
+	 * @param string $table  Table alias
+	 * @param array  $fields Field names
+	 * @param string $query  Query string
+	 * @param string $glue   Glue
 	 * @return string
 	 */
 	private function sqlGetWhereLikeClause($table, $fields, $query = '', $glue = ' OR ') {
@@ -502,11 +518,12 @@ class ElggListQuery {
 
 	/**
 	 * Get IN clauses
-	 * @param string $table
-	 * @param array $fields
-	 * @param array $values
-	 * @param boolean $as_text
-	 * @param string $glue
+	 *
+	 * @param string  $table   Table alias
+	 * @param array   $fields  Field names
+	 * @param array   $values  Possible values
+	 * @param boolean $as_text Escape text strings
+	 * @param string  $glue    Glue
 	 * @return string
 	 */
 	private function sqlGetWhereInClause($table, $fields, $values = array(), $as_text = false, $glue = ' AND ') {
