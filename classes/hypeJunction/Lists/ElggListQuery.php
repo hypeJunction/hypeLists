@@ -215,7 +215,7 @@ class ElggListQuery {
 
 			$where_md[] = $this->sqlGetWhereInClause('md', array('name_id'), $map);
 			$where_md[] = $this->sqlGetWhereLikeClause('msv', array('string'), $query);
-			$where_md[] = get_access_sql_suffix('md');
+			$where_md[] = $this->sqlGetAccessSuffix('md');
 
 			$where[] = '(' . implode(' AND ', $where_md) . ')';
 		}
@@ -245,7 +245,7 @@ class ElggListQuery {
 
 			$where_md[] = $this->sqlGetWhereInClause('md', array('name_id'), $map);
 			$where_md[] = $this->sqlGetWhereLikeClause('msv', array('string'), $query);
-			$where_md[] = get_access_sql_suffix('md');
+			$where_md[] = $this->sqlGetAccessSuffix('md');
 
 			$where[] = '(' . implode(' AND ', $where_md) . ')';
 		}
@@ -293,7 +293,7 @@ class ElggListQuery {
 			$map = self::getMetaMap($tag_names);
 			$where_md[] = $this->sqlGetWhereInClause('md', array('name_id'), $map);
 			$where_md[] = $this->sqlGetWhereLikeClause('msv', array('string'), $query);
-			$where_md[] = get_access_sql_suffix('md');
+			$where_md[] = $this->sqlGetAccessSuffix('md');
 			$where = '(' . implode(' AND ', $where_md) . ')';
 		}
 
@@ -539,4 +539,15 @@ class ElggListQuery {
 		return "($ins_str)";
 	}
 
+	/**
+	 * Get Elgg access SQL suffix
+	 *
+	 * @param string $table_alias Table alias
+	 * @return string
+	 */
+	function sqlGetAccessSuffix($table_alias = 'e') {
+		return _elgg_get_access_where_sql(array(
+			'table_alias' => $table_alias
+		));
+	}
 }
