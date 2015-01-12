@@ -557,7 +557,7 @@
 					$(this).data('item-index', itemIndex);
 					$(this).appendTo(self.$list);
 					if (self.options.selectorDelete) {
-						$(this).find(self.options.selectorDelete).on('click', self.deleteItem);
+						$(this).find(self.options.selectorDelete).off('click').on('click', self.deleteItem);
 					}
 				});
 				self.sortList();
@@ -573,7 +573,7 @@
 		removeItems: function ($items) {
 			var self = this;
 			var $itemsRemove = self.$list.find($items);
-			
+
 			if ($itemsRemove.length) {
 				$itemsRemove.each(function () {
 					$(this).nextAll().each(function () {
@@ -617,6 +617,10 @@
 		 */
 		deleteItem: function (e) {
 			e.preventDefault();
+			var confirmText = $(this).data('confirm') || elgg.echo('question:areyousure');
+			if (!confirm(confirmText)) {
+				return false;
+			}
 			var $elem = $(this),
 					$item = $elem.closest($elem.closest('.elgg-list').children()),
 					href = $elem.attr('href');
