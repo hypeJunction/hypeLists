@@ -46,7 +46,7 @@ if (is_array($items) || $items instanceof ElggBatch) {
 			if ($subtype) {
 				$item_classes[] = implode('-', array('elgg', 'item', $type, $subtype));
 			}
-		} else if (is_callable(get_class($item), 'getType')) {
+		} else if (is_callable(array($item, 'getType'))) {
 			$id = "item-{$item->getType()}-{$item->id}";
 		}
 
