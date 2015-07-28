@@ -15,16 +15,16 @@
 		"installer-name": "hypeLists"
 	},
 	"config": {
-		"vendor-dir": "vendors",
-		"preferred-install": "dist"
+		"vendor-dir": "/vendor/"
 	},
 	"require": {
 		"php": ">=5.4",
-		"composer/installers": "1.0.*"
+		"composer/installers": "1.0.*",
+		"hypejunction/hypeapps": "4.*"
 	},
 	"autoload": {
-		"psr-4": {
-			"hypeJunction\\": ["classes/hypeJunction/", "tests/phpunit/classes/hypeJunction"]
+		"psr-0": {
+			"": "classes/"
 		}
 	}
 }
