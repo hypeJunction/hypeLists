@@ -3,9 +3,9 @@
 
 	<name>hypeLists</name>
 	<id>hypeLists</id>
-	<version>3.1.0</version>
+	<version>3.1.1</version>
 
-	<description>Developer tools for managing and ajaxifying lists<</description>
+	<description>Developer tools for managing and ajaxifying lists</description>
 	<category>lists</category>
 
 	<author>Ismayil Khayredinov (ismayil.khayredinov@gmail.com)</author>
