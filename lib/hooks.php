@@ -2,6 +2,8 @@
 
 namespace hypeJunction\Lists;
 
+use Closure;
+
 /**
  * Wrap list views into a container that can be manipulated
  *
@@ -21,6 +23,9 @@ function wrap_list_view_hook($hook, $type, $view, $params) {
 	if (!$pagination || !$pagination_type) {
 		return $view;
 	}
+
+	$no_results = elgg_extract('no_results', $vars, '');
+	$no_results_str = ($no_results instanceof Closure) ? $no_results() : $no_results;
 	
 	$list_id = (isset($vars['list_id'])) ? $vars['list_id'] : '';
 	if (!$list_id) {
@@ -28,7 +33,7 @@ function wrap_list_view_hook($hook, $type, $view, $params) {
 			elgg_extract('container_class', $vars),
 			elgg_extract('list_class', $vars),
 			elgg_extract('item_class', $vars),
-			elgg_extract('no_results', $vars),
+			$no_results_str,
 			elgg_extract('pagination', $vars),
 			elgg_extract('base_url', $vars),
 		)));
@@ -38,7 +43,7 @@ function wrap_list_view_hook($hook, $type, $view, $params) {
 		'elgg-list-container',
 		elgg_extract('container_class', $vars)
 	));
-	
+
 	$wrapper_params = array(
 		'class' => implode(' ', $container_class),
 		'data-list-id' => $list_id,
@@ -47,7 +52,7 @@ function wrap_list_view_hook($hook, $type, $view, $params) {
 		'data-pagination' => $pagination_type,
 		'data-pagination-position' => elgg_extract('position', $vars, ($pagination_type === 'infinite') ? 'both' : 'after'),
 		'data-pagination-num-pages' => (int) elgg_extract('num_pages', $vars, 10),
-		'data-text-no-results' => elgg_extract('no_results', $vars, ''),
+		'data-text-no-results' => $no_results_str,
 		'data-limit' => elgg_extract('limit', $vars, 10),
 		'data-offset' => elgg_extract('offset', $vars, 0),
 		'data-offset-key' => elgg_extract('offset_key', $vars, 'offset'),
