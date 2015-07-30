@@ -43,8 +43,8 @@ elgg_register_event_handler('pagesetup', 'system', __NAMESPACE__ . '\\register_v
 function init() {
 
 	elgg_define_js('hypeList', array(
-		'src' => elgg_get_simplecache_url('js', 'framework/jquery/hypeList.js'),
-		'deps' => array('jquery')
+		'src' => elgg_get_simplecache_url('js', 'framework/lists/plugin.js'),
+		'deps' => array('jquery', 'elgg')
 	));
 
 	elgg_extend_view('css/elgg', 'css/framework/lists/stylesheet.css');

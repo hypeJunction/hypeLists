@@ -1,10 +1,5 @@
-(function (factory) {
-	if (typeof define === 'function' && define.amd) {
-		define(['jquery', 'elgg'], factory);
-	} else {
-		factory(jQuery, elgg);
-	}
-}(function ($, elgg) {
+define(['jquery', 'elgg'], function ($, elgg) {
+
 	'use strict';
 
 	// Default options
@@ -893,4 +888,5 @@
 	$.fn.hypeList.hypeList = hypeList;
 	$.fn.hypeListPagination.defaults = defaults;
 	$.fn.hypeListPagination.hypeListPagination = hypeListPagination;
-}));
+
+});
