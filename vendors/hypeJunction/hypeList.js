@@ -617,9 +617,12 @@
 		 */
 		deleteItem: function (e) {
 			e.preventDefault();
-			var confirmText = $(this).data('confirm') || elgg.echo('question:areyousure');
-			if (!confirm(confirmText)) {
-				return false;
+			var $target = $(e.target).closest('.elgg-menu-item').andSelf();
+			if (!$target.is('.elgg-requires-confirmation,[data-confirm]').length) {
+				var confirmText = $(this).data('confirm') || elgg.echo('question:areyousure');
+				if (!confirm(confirmText)) {
+					return false;
+				}
 			}
 			var $elem = $(this),
 					$item = $elem.closest($elem.closest('.elgg-list,.elgg-gallery').children()),
