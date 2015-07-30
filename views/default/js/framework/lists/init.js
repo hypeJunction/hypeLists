@@ -4,7 +4,9 @@ define(['jquery', 'elgg', 'hypeList'], function ($, elgg) {
 		var $container = $(this).parent('.elgg-list-container');
 		if ($container.length) {
 			var options = $container.data();
-			$(this).hypeList(options);
+			if (typeof $.fn.hypeList !== 'undefined') {
+				$(this).hypeList(options);
+			}
 		}
 	});
 
