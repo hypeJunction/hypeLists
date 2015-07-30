@@ -1,6 +1,6 @@
 define(['jquery', 'elgg', 'hypeList'], function ($, elgg) {
 
-	$(document).on('initialize', '.elgg-list', function () {
+	$(document).on('initialize', '.elgg-list,.elgg-gallery', function () {
 		var $container = $(this).parent('.elgg-list-container');
 		if ($container.length) {
 			var options = $container.data();
@@ -10,5 +10,5 @@ define(['jquery', 'elgg', 'hypeList'], function ($, elgg) {
 		}
 	});
 
-	$('.elgg-list').trigger('initialize');
+	$('.elgg-list,.elgg-gallery').trigger('initialize');
 });

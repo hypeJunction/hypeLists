@@ -467,15 +467,15 @@
 					$data = $(responseData),
 					$list;
 
-			if ($data.is('.elgg-list')) {
+			if ($data.is('.elgg-list,.elgg-gallery')) {
 				$list = $data;
 			} else if ($data.is('.elgg-item')) {
 				$list = $('<ul></ul>').html($data);
 			} else if ($data.is('[data-list-id="' + self.options.listId + '"]')) {
-				$list = $data.children('.elgg-list');
+				$list = $data.children('.elgg-list,.elgg-gallery');
 			} else {
 				$list = $data.find('[data-list-id="' + self.options.listId + '"]').first();
-				$list = $list.children('.elgg-list');
+				$list = $list.children('.elgg-list,.elgg-gallery');
 			}
 			return $list.children().filter(function () {
 				return !(self.$list.children().is('#' + $(this).attr('id')));
@@ -622,7 +622,7 @@
 				return false;
 			}
 			var $elem = $(this),
-					$item = $elem.closest($elem.closest('.elgg-list').children()),
+					$item = $elem.closest($elem.closest('.elgg-list,.elgg-gallery').children()),
 					href = $elem.attr('href');
 
 			if (href) {
@@ -630,12 +630,12 @@
 					dataType: 'json',
 					success: function (response) {
 						if (response.status >= 0) {
-							$elem.closest('.elgg-list').hypeList('removeItems', $item);
+							$elem.closest('.elgg-list,.elgg-gallery').hypeList('removeItems', $item);
 						}
 					}
 				});
 			} else {
-				$elem.closest('.elgg-list').hypeList('removeItems', $item);
+				$elem.closest('.elgg-list,.elgg-gallery').hypeList('removeItems', $item);
 			}
 		},
 		showLoader: function () {
@@ -872,7 +872,7 @@
 		options = $.extend(true, {}, defaults, options);
 		return this.each(function () {
 			if (!$list.length) {
-				$list = $(this).siblings('.elgg-list');
+				$list = $(this).siblings('.elgg-list,.elgg-gallery');
 			}
 			options = $.extend(true, {}, options, $(this).data());
 			var data = $(this).data('hypeListPagination');
