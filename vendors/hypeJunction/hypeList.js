@@ -557,6 +557,9 @@
 					$(this).data('item-index', itemIndex);
 					$(this).appendTo(self.$list);
 					if (self.options.selectorDelete) {
+						if (typeof $.fn.die === 'function') {
+							$(this).find(self.options.selectorDelete).die('click');
+						}
 						$(this).find(self.options.selectorDelete).off('click').on('click', self.deleteItem);
 					}
 				});
@@ -617,12 +620,9 @@
 		 */
 		deleteItem: function (e) {
 			e.preventDefault();
-			var $target = $(e.target).closest('.elgg-menu-item').andSelf();
-			if (!$target.is('.elgg-requires-confirmation,[data-confirm]').length) {
-				var confirmText = $(this).data('confirm') || elgg.echo('question:areyousure');
-				if (!confirm(confirmText)) {
-					return false;
-				}
+			var confirmText = $(this).data('confirm') || elgg.echo('question:areyousure');
+			if (!confirm(confirmText)) {
+				return false;
 			}
 			var $elem = $(this),
 					$item = $elem.closest($elem.closest('.elgg-list,.elgg-gallery').children()),
