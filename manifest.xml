@@ -8,7 +8,7 @@
 	<description>Developer tools for managing and ajaxifying lists</description>
 	<category>lists</category>
 
-	<author>Ismayil Khayredinov (ismayil.khayredinov@gmail.com)</author>
+	<author>Ismayil Khayredinov (info@hypejunction.com)</author>
 	<website>http://hypeJunction.com</website>
 	<copyright>2011-2014 (c) Ismayil Khayredinov</copyright>
 	<license>GNU Public License version 2</license>
@@ -17,5 +17,5 @@
 		<type>elgg_release</type>
 		<version>1.9</version>
 	</requires>
-
+	
 </plugin_manifest>
