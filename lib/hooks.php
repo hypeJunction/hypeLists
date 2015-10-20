@@ -67,7 +67,7 @@ function wrap_list_view_hook($hook, $type, $view, $params) {
 			$wrapper_params[$key] = $val;
 		}
 	}
-	
-	elgg_require_js('framework/lists/init');
+
+	$view .= elgg_view('js/framework/lists/require');
 	return elgg_format_element('div', $wrapper_params, $view);
 }
