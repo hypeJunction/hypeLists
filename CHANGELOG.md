@@ -1,3 +1,25 @@
+<a name="3.4.0"></a>
+# [3.4.0](https://github.com/hypeJunction/hypeLists/compare/3.3.2...v3.4.0) (2015-12-27)
+
+
+### Bug Fixes
+
+* **api:** fix default list id ([00e2add](https://github.com/hypeJunction/hypeLists/commit/00e2add))
+* **css:** clean up CSS and get rid of SASS ([012cd43](https://github.com/hypeJunction/hypeLists/commit/012cd43))
+* **css:** css makes no sense, get rid of it ([4793c25](https://github.com/hypeJunction/hypeLists/commit/4793c25))
+* **delete:** ajax delete now respects confirmations response ([1d20ce3](https://github.com/hypeJunction/hypeLists/commit/1d20ce3)), closes [#12](https://github.com/hypeJunction/hypeLists/issues/12)
+* **deps:** hypeApps is not really required, get rid of it ([1463bef](https://github.com/hypeJunction/hypeLists/commit/1463bef))
+* **js:** clean AMD module structure ([08adf28](https://github.com/hypeJunction/hypeLists/commit/08adf28))
+* **lists:** lists now do not break in non-default viewtypews ([79039e8](https://github.com/hypeJunction/hypeLists/commit/79039e8)), closes [#14](https://github.com/hypeJunction/hypeLists/issues/14)
+* **lists:** properly handle no results ([9e811df](https://github.com/hypeJunction/hypeLists/commit/9e811df)), closes [#8](https://github.com/hypeJunction/hypeLists/issues/8)
+
+### Features
+
+* **events:** trigger a change event whenever items visibility is toggled ([1834a89](https://github.com/hypeJunction/hypeLists/commit/1834a89)), closes [#13](https://github.com/hypeJunction/hypeLists/issues/13)
+* **spinner:** use Elgg spinner module if available ([0bb2f6f](https://github.com/hypeJunction/hypeLists/commit/0bb2f6f))
+
+
+
 <a name="3.3.2"></a>
 ## [3.3.2](https://github.com/hypeJunction/hypeLists/compare/3.3.2...v3.3.2) (2015-12-27)
 
