@@ -2,7 +2,7 @@
 	"name": "hypejunction/hypelists",
 	"version": "3.3.2",
 	"type": "elgg-plugin",
-	"description": "hypeLists Elgg Plugin",
+	"description": "AJAX lists for Elgg",
 	"homepage": "http://hypejunction.com/",
 	"keywords": [
 		"elgg", "plugin", "hypejunction", "hypelist", "lists", "ajax"
@@ -15,7 +15,8 @@
 	"extra": {
 		"installer-name": "hypeLists"
 	},
-	"require-dev": {
+	"require": {
+		"php": ">=5.3",
 		"composer/installers": "~1.0",
 		"hypejunction/hypeapps": "~4.0"
 	},
