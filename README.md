@@ -84,10 +84,14 @@ $('.elgg-list').hypeList('removeItems', $items);
 // Add new items to the list
 $('.elgg-list').hypeList('addFetchedItems', ajaxData);
 
+
+// Events
+
+// Event triggered whenever an item is added, removed or hidden from a list
+$('.elgg-list').on('change', callback);
+
+// Event triggered whenever a spinner is shown and hidden
+$('.elgg-list').on('showLoader', callback);
+$('.elgg-list').on('hideLoader', callback);
+
 ```
-
-
-
-
-
-

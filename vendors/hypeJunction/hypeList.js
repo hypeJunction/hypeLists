@@ -183,6 +183,8 @@
 
 			self.$list.children().not($pageItems).removeClass(self.options.classVisible).addClass(self.options.classHidden);
 			$pageItems.removeClass(self.options.classHidden).addClass(self.options.classVisible);
+
+			self.$elem.trigger('change');
 		},
 		/**
 		 * Scroll to top of the list once items have been replaced/displayed
