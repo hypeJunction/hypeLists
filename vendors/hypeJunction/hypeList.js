@@ -182,8 +182,16 @@
 			var $pageItems = self.filterPageItems(startPageIndex, endPageIndex);
 
 			self.$list.children().not($pageItems).removeClass(self.options.classVisible).addClass(self.options.classHidden);
-			$pageItems.removeClass(self.options.classHidden).addClass(self.options.classVisible);
 
+			if ($pageItems.length === 0) {
+				if (self.options.textNoResults) {
+					self.$elem.append($('<p>').addClass('.elgg-no-results').text(self.options.textNoResults));
+				}
+			} else {
+				self.$elem.find('.elgg-no-results').remove();
+				$pageItems.removeClass(self.options.classHidden).addClass(self.options.classVisible);
+			}
+			
 			self.$elem.trigger('change');
 		},
 		/**
