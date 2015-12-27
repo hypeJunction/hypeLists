@@ -641,10 +641,10 @@
 			}
 		},
 		showLoader: function () {
-			$('body').addClass(this.options.classLoading);
+			this.$elem.trigger('showLoader');
 		},
 		hideLoader: function () {
-			$('body').removeClass(this.options.classLoading)
+			this.$elem.trigger('hideLoader');
 		}
 	};
 
