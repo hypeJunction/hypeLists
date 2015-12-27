@@ -21,9 +21,6 @@ module.exports = function (grunt) {
 		clean: {
 			release: {
 				src: ['build/', 'releases/', 'mod/', 'vendor/', 'composer.lock']
-			},
-			composer: {
-				src: ['vendor/smottt']
 			}
 		},
 		copy: {
@@ -154,7 +151,6 @@ module.exports = function (grunt) {
 			'gitpush:release_tags',
 			'clean:release',
 			'composer:install:no-dev:prefer-dist',
-			'clean:composer',
 			'copy:release',
 			'compress:release',
 			'gh_release',

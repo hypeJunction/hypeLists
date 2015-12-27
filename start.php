@@ -27,11 +27,7 @@
 
 namespace hypeJunction\Lists;
 
-if (file_exists(__DIR__  . '/vendor/autoload.php')) {
-	require_once __DIR__ . '/vendor/autoload.php';
-}
-
-require_once __DIR__ . '/lib/hooks.php';
+require_once __DIR__ . '/autoloader.php';
 
 elgg_register_event_handler('init', 'system', __NAMESPACE__ . '\\init');
 elgg_register_event_handler('pagesetup', 'system', __NAMESPACE__ . '\\register_view_hook_handlers');
