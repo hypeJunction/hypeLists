@@ -46,8 +46,6 @@ function init() {
 		'src' => '/mod/hypeLists/vendors/hypeJunction/hypeList.js',
 		'deps' => array('jquery', 'elgg'),
 	));
-
-	elgg_extend_view('css/elgg', 'css/framework/lists/stylesheet.css');
 }
 
 /**
