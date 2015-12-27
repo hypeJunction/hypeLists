@@ -149,7 +149,7 @@ class ElggList {
 		}
 
 		if (isset($this->options['id'])) {
-			$this->hash = "mapbox-{$this->options['id']}";
+			$this->hash = "elgg-list-{$this->options['id']}";
 			return $this->hash;
 		}
 
