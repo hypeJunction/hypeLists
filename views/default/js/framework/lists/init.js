@@ -1,13 +1,18 @@
-define(['jquery', 'elgg', 'hypeList'], function ($, elgg) {
+define(function (require) {
 
+	var $ = require('jquery');
+	
 	$(document).on('initialize', '.elgg-list,.elgg-gallery', function () {
-		var $container = $(this).parent('.elgg-list-container');
-		if ($container.length) {
-			var options = $container.data();
-			if (typeof $.fn.hypeList !== 'undefined') {
-				$(this).hypeList(options);
-			}
+		var $list = $(this);
+		var $container = $list.parent('.elgg-list-container');
+		if (!$container.length) {
+			return;
 		}
+
+		var options = $container.data();
+		require(['hypeList'], function () {
+			$list.hypeList(options);
+		});
 	});
 
 	$('.elgg-list,.elgg-gallery').trigger('initialize');
