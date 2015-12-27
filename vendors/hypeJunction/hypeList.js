@@ -559,7 +559,8 @@
 					$(this).data('item-index', itemIndex);
 					$(this).appendTo(self.$list);
 					if (self.options.selectorDelete) {
-						$(this).find(self.options.selectorDelete).off('click').on('click', self.deleteItem);
+						$(document).off('click', self.options.selectorDelete)
+								.on('click', self.options.selectorDelete, self.deleteItem);
 					}
 				});
 				self.sortList();
@@ -618,11 +619,14 @@
 		 * @returns {void}
 		 */
 		deleteItem: function (e) {
+			if (e.isDefaultPrevented() || !$(this).closest('.elgg-item').data('item-index')) {
+				return;
+			}
 			e.preventDefault();
-			if (!$(this).is('*[data-confirm],.elgg-requires-confirmation')) {
-				var confirmText = $(this).data('confirm') || elgg.echo('question:areyousure');
+			if (!$(this).is('[data-confirm],.elgg-requires-confirmation')) {
+				var confirmText = elgg.echo('question:areyousure');
 				if (!confirm(confirmText)) {
-					return false;
+					return;
 				}
 			}
 			var $elem = $(this),
