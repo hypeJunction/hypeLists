@@ -14,6 +14,11 @@ use Closure;
  * @return string Wrapped view
  */
 function wrap_list_view_hook($hook, $type, $view, $params) {
+
+	$viewtype = elgg_extract('viewtype', $params, 'default');
+	if ($viewtype !== 'default') {
+		return;
+	}
 	
 	$vars = elgg_extract('vars', $params);
 
