@@ -34,6 +34,4 @@ define(function (require) {
 			$('body').removeClass(cl);
 		}
 	});
-
-	$('.elgg-list,.elgg-gallery').trigger('initialize');
 });
