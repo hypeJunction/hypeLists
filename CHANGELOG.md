@@ -1,3 +1,14 @@
+<a name="3.4.1"></a>
+## [3.4.1](https://github.com/hypeJunction/hypeLists/compare/3.4.0...v3.4.1) (2015-12-28)
+
+
+### Bug Fixes
+
+* **js:** always trigger initialize event after AMD module is loaded ([8397e61](https://github.com/hypeJunction/hypeLists/commit/8397e61))
+* **js:** correctly parse loader CSS class when spinner is not loaded ([5d21c65](https://github.com/hypeJunction/hypeLists/commit/5d21c65)), closes [#16](https://github.com/hypeJunction/hypeLists/issues/16)
+
+
+
 <a name="3.4.0"></a>
 # [3.4.0](https://github.com/hypeJunction/hypeLists/compare/3.3.2...v3.4.0) (2015-12-27)
 
