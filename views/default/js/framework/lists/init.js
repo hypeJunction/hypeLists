@@ -21,7 +21,8 @@ define(function (require) {
 				spinner.start();
 			});
 		} else {
-			$('body').addClass(this.options.classLoading);
+			var cl = $(this).data('classLoading') || 'elgg-state-loading';
+			$('body').addClass(cl);
 		}
 	}).on('hideLoader.spinner', '.elgg-list,.elgg-gallery', function () {
 		if (require.defined('elgg/spinner')) {
@@ -29,7 +30,8 @@ define(function (require) {
 				spinner.stop();
 			});
 		} else {
-			$('body').removeClass(this.options.classLoading);
+			var cl = $(this).data('classLoading') || 'elgg-state-loading';
+			$('body').removeClass(cl);
 		}
 	});
 
