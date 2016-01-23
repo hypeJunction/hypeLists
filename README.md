@@ -70,20 +70,20 @@ $('.elgg-list.my-list').hypeList({
 // Navigate to a page with a certain index
 // For default pagination type, page with pageIndex is loaded and displayed
 // For infinite pagination type, all pages in range from currently visible pages to the page with pageIndex are loaded and displayed
-$('.elgg-list').hypeList('goToPage', pageIndex);
+$('.elgg-list').trigger('goToPage', [pageIndex]);
 
 // Trigger refresh
 // Reloads the page and appends new items if any
 // If no pageIndex is provided, it's determined by pagination type
 // goToPage parameter can be used to navigate to the page once new items have been fetched
 // goToPage flag is useful when a new post was made and you want to display the post to the user
-$('.elgg-list').hypeList('fetchNewItems', pageIndex, goToPage);
+$('.elgg-list').trigger('fetchNewItems', [pageIndex, goToPage]);
 
 // Remove items from the list and reindex
-$('.elgg-list').hypeList('removeItems', $items);
+$('.elgg-list').trigger('removeItems', [$items]);
 
 // Add new items to the list
-$('.elgg-list').hypeList('addFetchedItems', ajaxData);
+$('.elgg-list').trigger('addFetchedItems', [ajaxData]);
 
 
 // Events

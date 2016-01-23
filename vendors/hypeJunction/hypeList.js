@@ -145,6 +145,22 @@
 			$(self).on('pageSwitched.hypeList pageShown.hypeList newItemsFetched.hypeList itemsRemoved.hypeList', self.toggleItemVisibility);
 			$(self).on('pageSwitched.hypeList', self.scrollToTop);
 			$(self).on('ready.hypeList newItemsFetched.hypeList', self.setRefreshTimeout);
+
+			self.$list.off('.hypeList');
+
+			self.$list.on('goToPage.hypeList', function (e, pageIndex) {
+				this.goToPage(pageIndex);
+			}.bind(self));
+			self.$list.on('refresh.hypeList fetchNewItems.hypeList', function (e, pageIndex, goToPage) {
+				this.fetchNewItems(pageIndex, goToPage);
+			}.bind(self));
+			self.$list.on('removeItems.hypeList', function (e, $items) {
+				this.removeItems($items);
+			}.bind(self));
+			self.$list.on('addFetchedItems.hypeList', function (e, ajaxData, pageIndex, goToPage) {
+				this.addFetchedItems(ajaxData, pageIndex, goToPage);
+			}.bind(self));
+
 		},
 		/**
 		 * Set timeout for automatic refresh of the list
@@ -208,7 +224,7 @@
 				$pageItems.removeClass(self.options.classHidden).addClass(self.options.classVisible);
 			}
 
-			self.$elem.trigger('change');
+			self.$elem.trigger('change', [self.options]);
 		},
 		/**
 		 * Scroll to top of the list once items have been replaced/displayed
