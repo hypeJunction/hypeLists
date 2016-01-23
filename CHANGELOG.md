@@ -1,3 +1,14 @@
+<a name="3.5.0"></a>
+# [3.5.0](https://github.com/hypeJunction/hypeLists/compare/3.4.1...v3.5.0) (2016-01-23)
+
+
+### Features
+
+* **js:** adds more public event triggers ([79dd720](https://github.com/hypeJunction/hypeLists/commit/79dd720))
+* **lists:** better handling of empty lists ([cb44929](https://github.com/hypeJunction/hypeLists/commit/cb44929))
+
+
+
 <a name="3.4.1"></a>
 ## [3.4.1](https://github.com/hypeJunction/hypeLists/compare/3.4.0...v3.4.1) (2015-12-28)
 
