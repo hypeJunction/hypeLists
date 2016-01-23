@@ -2,7 +2,7 @@ define(function (require) {
 
 	var $ = require('jquery');
 
-	$(document).on('initialize', '.elgg-list,.elgg-gallery', function () {
+	$(document).on('initialize', '.elgg-list,.elgg-gallery,.elgg-no-results', function () {
 		var $list = $(this);
 		var $container = $list.parent('.elgg-list-container');
 		if (!$container.length) {

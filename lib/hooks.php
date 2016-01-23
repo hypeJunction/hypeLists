@@ -19,24 +19,29 @@ function wrap_list_view_hook($hook, $type, $view, $params) {
 	if ($viewtype !== 'default') {
 		return;
 	}
-	
+
 	$vars = elgg_extract('vars', $params);
 
 	$pagination = elgg_extract('pagination', $vars, false);
 	$pagination_type = elgg_extract('pagination_type', $vars, elgg_get_plugin_setting('pagination_type', 'hypeLists'));
-	
+
 	if (!$pagination || !$pagination_type) {
 		return $view;
 	}
 
 	$no_results = elgg_extract('no_results', $vars, '');
 	$no_results_str = ($no_results instanceof Closure) ? $no_results() : $no_results;
-	
+
+	$list_classes = $type == 'page/components/gallery' ? ['elgg-gallery'] : ['elgg-list'];
+	if (isset($vars['list_class'])) {
+		$list_classes[] = $vars['list_class'];
+	}
+
 	$list_id = (isset($vars['list_id'])) ? $vars['list_id'] : '';
 	if (!$list_id) {
 		$list_id = md5(serialize(array(
 			elgg_extract('container_class', $vars),
-			elgg_extract('list_class', $vars),
+			implode(' ', $list_classes),
 			elgg_extract('item_class', $vars),
 			$no_results_str,
 			elgg_extract('pagination', $vars),
@@ -65,6 +70,7 @@ function wrap_list_view_hook($hook, $type, $view, $params) {
 		'data-auto-refresh' => elgg_extract('auto_refresh', $vars, false),
 		'data-reversed' => elgg_extract('reversed', $vars, false),
 		'data-list-time' => get_input('list_time', time()),
+		'data-list-classes' => implode(' ', $list_classes),
 	);
 
 	foreach ($vars as $key => $val) {

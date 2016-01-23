@@ -35,6 +35,7 @@
 		scrollTopOffset: -100, // Additional offset in pixels for when the page is scrolled to the top of the list
 		listTime: 0, // Timestamp at which the list was generated, sent with AJAX requests
 		selectorDelete: '.elgg-menu-item-delete > a', // CSS selector of an anchor that will trigger a delete action
+		listClasses: 'elgg-list'
 	};
 
 	/**
@@ -103,6 +104,17 @@
 		prepareDom: function () {
 			var self = this;
 
+			self.$noResults = false;
+			if (self.$elem.is('.elgg-no-results')) {
+				self.$list = $('<ul>').addClass(self.options.listClasses).hide();
+				self.$elem.before(self.$list);
+				self.$noResults = self.$elem;
+				self.$elem = self.$list;
+			} else if (self.options.textNoResults) {
+				self.$noResults = $('<p>').addClass('elgg-no-results').text(self.options.textNoResults).hide();
+				self.$list.after(self.$noResults);
+			}
+
 			self.addPageItems(self.options.activePage, self.$list.children().removeClass(self.options.classHidden).addClass(self.options.classVisible));
 
 			self.$list.siblings('.elgg-pagination').remove();
@@ -131,7 +143,7 @@
 			$(self).on('ready.hypeList pageSwitched.hypeList pageShown.hypeList newItemsFetched.hypeList itemsRemoved.hypeList', self.paginate);
 			$(self).on('ready.hypeList pageSwitched.hypeList pageShown.hypeList itemsRemoved.hypeList', self.lazyLoad);
 			$(self).on('pageSwitched.hypeList pageShown.hypeList newItemsFetched.hypeList itemsRemoved.hypeList', self.toggleItemVisibility);
-			$(self).on('pageSwitched.hypeList newItemsFetched.hypeList', self.scrollToTop);
+			$(self).on('pageSwitched.hypeList', self.scrollToTop);
 			$(self).on('ready.hypeList newItemsFetched.hypeList', self.setRefreshTimeout);
 		},
 		/**
@@ -184,14 +196,18 @@
 			self.$list.children().not($pageItems).removeClass(self.options.classVisible).addClass(self.options.classHidden);
 
 			if ($pageItems.length === 0) {
-				if (self.options.textNoResults) {
-					self.$elem.append($('<p>').addClass('.elgg-no-results').text(self.options.textNoResults));
+				self.$list.hide();
+				if (self.$noResults) {
+					self.$noResults.show();
 				}
 			} else {
-				self.$elem.find('.elgg-no-results').remove();
+				self.$list.show();
+				if (self.$noResults) {
+					self.$noResults.hide();
+				}
 				$pageItems.removeClass(self.options.classHidden).addClass(self.options.classVisible);
 			}
-			
+
 			self.$elem.trigger('change');
 		},
 		/**
@@ -429,7 +445,11 @@
 					$(this).data('item-index', itemIndex);
 				});
 
-				$firstPageItem.before($newItems);
+				if ($firstPageItem.length) {
+					$firstPageItem.before($newItems);
+				} else {
+					self.$list.html($newItems);
+				}
 				$newItems.last().nextAll().each(function () {
 					var index = $(this).data('item-index');
 					$(this).data('item-index', index + $newItems.length);
@@ -446,6 +466,7 @@
 
 			if (goToPage) {
 				self.goToPage(pageIndex);
+				self.scrollToTop();
 			}
 			$(self).trigger('newItemsFetched', [pageIndex, $newItems]);
 		},
@@ -458,7 +479,6 @@
 		 */
 		addPageOnLoad: function (pageIndex, responseData) {
 			var self = this;
-
 			self.options.loadedPages.push(pageIndex);
 			var $newItems = self.parseNewItems(responseData).removeClass(self.options.classVisible).addClass(self.options.classHidden);
 			if ($newItems.length) {

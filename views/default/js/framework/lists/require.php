@@ -1,5 +1,5 @@
 <script>
 	require(['jquery', 'framework/lists/init'], function($) {
-		$('.elgg-list,.elgg-gallery').trigger('initialize');
+		$('.elgg-list,.elgg-gallery,.elgg-no-results').trigger('initialize');
 	});
 </script>
