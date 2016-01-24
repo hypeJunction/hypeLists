@@ -1,3 +1,13 @@
+<a name="3.5.3"></a>
+## [3.5.3](https://github.com/hypeJunction/hypeLists/compare/3.5.2...v3.5.3) (2016-01-24)
+
+
+### Bug Fixes
+
+* **js:** doh, js event name ([e2529c2](https://github.com/hypeJunction/hypeLists/commit/e2529c2))
+
+
+
 <a name="3.5.2"></a>
 ## [3.5.2](https://github.com/hypeJunction/hypeLists/compare/3.5.1...v3.5.2) (2016-01-24)
 
