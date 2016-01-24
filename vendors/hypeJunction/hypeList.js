@@ -196,6 +196,7 @@
 		init: function () {
 			var self = this;
 			$(self).trigger('ready');
+			self.$elem.trigger('change', [self.options]);
 		},
 		/**
 		 * Toggle visibility of items for visible pages
@@ -488,7 +489,7 @@
 		},
 		/**
 		 * Process ajax response
-		 * 
+		 *
 		 * @param {integer} pageIndex    Page index
 		 * @param {string}  responseData HTML string
 		 * @returns {void}
@@ -504,7 +505,7 @@
 		},
 		/**
 		 * Parse list items items from ajax response data
-		 * 
+		 *
 		 * @param {string} responseData
 		 * @returns {jQuery}
 		 */
@@ -613,7 +614,7 @@
 		},
 		/**
 		 * Remove items from the list
-		 * 
+		 *
 		 * @param {jQuery} $items
 		 * @returns {void}
 		 */
@@ -701,7 +702,7 @@
 	/**
 	 * hypeListPagination constructor
 	 * Inherits from hypeList constructor
-	 * 
+	 *
 	 * @param {object} element    DOM Element
 	 * @param {object} options    Options
 	 * @param {jQuery} $list hypeList container

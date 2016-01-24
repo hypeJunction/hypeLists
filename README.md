@@ -88,7 +88,12 @@ $('.elgg-list').trigger('addFetchedItems', [ajaxData]);
 
 // Events
 
+// Event triggered whenever the list is first rendered
+// Callback will receive list options as a second parameter
+$('.elgg-list').on('ready', callback);
+
 // Event triggered whenever an item is added, removed or hidden from a list
+// Callback will receive list options as a second parameter
 $('.elgg-list').on('change', callback);
 
 // Event triggered whenever a spinner is shown and hidden
