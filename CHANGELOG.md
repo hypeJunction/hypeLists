@@ -1,3 +1,13 @@
+<a name="3.5.1"></a>
+## [3.5.1](https://github.com/hypeJunction/hypeLists/compare/3.5.0...v3.5.1) (2016-01-24)
+
+
+### Bug Fixes
+
+* **js:** run initialization script only once ([ee5736e](https://github.com/hypeJunction/hypeLists/commit/ee5736e))
+
+
+
 <a name="3.5.0"></a>
 # [3.5.0](https://github.com/hypeJunction/hypeLists/compare/3.4.1...v3.5.0) (2016-01-23)
 
