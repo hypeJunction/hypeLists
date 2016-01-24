@@ -1,3 +1,13 @@
+<a name="3.5.2"></a>
+## [3.5.2](https://github.com/hypeJunction/hypeLists/compare/3.5.1...v3.5.2) (2016-01-24)
+
+
+### Features
+
+* **js:** trigger ready event when list is rendered ([cb472b6](https://github.com/hypeJunction/hypeLists/commit/cb472b6))
+
+
+
 <a name="3.5.1"></a>
 ## [3.5.1](https://github.com/hypeJunction/hypeLists/compare/3.5.0...v3.5.1) (2016-01-24)
 
