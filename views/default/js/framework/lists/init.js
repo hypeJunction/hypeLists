@@ -4,7 +4,7 @@ define(function (require) {
 
 	$(document).on('initialize', '.elgg-list,.elgg-gallery,.elgg-no-results', function () {
 		var $list = $(this);
-		var $container = $list.parent('.elgg-list-container');
+		var $container = $list.parent('.elgg-list-container:not(.elgg-state-ready)');
 		if (!$container.length) {
 			return;
 		}
@@ -12,6 +12,7 @@ define(function (require) {
 		var options = $container.data();
 		require(['hypeList'], function () {
 			$list.hypeList(options);
+			$container.addClass('elgg-state-ready');
 		});
 	});
 
