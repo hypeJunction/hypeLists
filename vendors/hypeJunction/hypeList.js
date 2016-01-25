@@ -134,7 +134,7 @@
 
 			self.$pagination = self.$list.siblings('.elgg-pagination').show();
 
-			self.options.listData = self.$list.data();
+			self.options.listData = self.options;
 		},
 		/**
 		 * Event binding
@@ -522,12 +522,13 @@
 			} else if ($data.is('.elgg-item')) {
 				$list = $('<ul></ul>').html($data);
 			} else if ($data.is('[data-list-id="' + self.options.listId + '"]')) {
+				self.options.listData = $data.data();
 				$list = $data.children('.elgg-list,.elgg-gallery');
 			} else {
 				$list = $data.find('[data-list-id="' + self.options.listId + '"]').first();
+				self.options.listData = $list.data();
 				$list = $list.children('.elgg-list,.elgg-gallery');
 			}
-			self.options.listData = $list.data();
 			return $list.children().filter(function () {
 				return !(self.$list.children().is('#' + $(this).attr('id')));
 			});
