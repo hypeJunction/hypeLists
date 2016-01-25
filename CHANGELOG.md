@@ -1,3 +1,13 @@
+<a name="3.5.5"></a>
+## [3.5.5](https://github.com/hypeJunction/hypeLists/compare/3.5.4...v3.5.5) (2016-01-25)
+
+
+### Bug Fixes
+
+* **js:** fix how ajax list data is stored ([8064b74](https://github.com/hypeJunction/hypeLists/commit/8064b74))
+
+
+
 <a name="3.5.4"></a>
 ## [3.5.4](https://github.com/hypeJunction/hypeLists/compare/3.5.3...v3.5.4) (2016-01-25)
 
