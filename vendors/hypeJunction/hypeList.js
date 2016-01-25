@@ -199,7 +199,7 @@
 		init: function () {
 			var self = this;
 			$(self).trigger('ready');
-			self.$elem.trigger('ready', [self.options]);
+			self.$list.trigger('ready', [self.options]);
 		},
 		/**
 		 * Toggle visibility of items for visible pages
