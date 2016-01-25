@@ -35,8 +35,7 @@
 		scrollTopOffset: -100, // Additional offset in pixels for when the page is scrolled to the top of the list
 		listTime: 0, // Timestamp at which the list was generated, sent with AJAX requests
 		selectorDelete: '.elgg-menu-item-delete > a', // CSS selector of an anchor that will trigger a delete action
-		listClasses: 'elgg-list',
-		listData: {}
+		listClasses: 'elgg-list'
 	};
 
 	/**
@@ -133,8 +132,6 @@
 			}
 
 			self.$pagination = self.$list.siblings('.elgg-pagination').show();
-
-			self.options.listData = self.options;
 		},
 		/**
 		 * Event binding
@@ -522,11 +519,11 @@
 			} else if ($data.is('.elgg-item')) {
 				$list = $('<ul></ul>').html($data);
 			} else if ($data.is('[data-list-id="' + self.options.listId + '"]')) {
-				self.options.listData = $data.data();
+				self.options.ajaxListData = $data.data();
 				$list = $data.children('.elgg-list,.elgg-gallery');
 			} else {
 				$list = $data.find('[data-list-id="' + self.options.listId + '"]').first();
-				self.options.listData = $list.data();
+				self.options.ajaxListData = $list.data();
 				$list = $list.children('.elgg-list,.elgg-gallery');
 			}
 			return $list.children().filter(function () {
