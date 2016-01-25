@@ -1,3 +1,18 @@
+<a name="3.5.4"></a>
+## [3.5.4](https://github.com/hypeJunction/hypeLists/compare/3.5.3...v3.5.4) (2016-01-25)
+
+
+### Bug Fixes
+
+* **js:** fix variable name ([a2f3e30](https://github.com/hypeJunction/hypeLists/commit/a2f3e30))
+
+### Features
+
+* **js:** store list data on init and ajax load ([208563b](https://github.com/hypeJunction/hypeLists/commit/208563b))
+* **js:** store list data on init and ajax load ([438cced](https://github.com/hypeJunction/hypeLists/commit/438cced))
+
+
+
 <a name="3.5.3"></a>
 ## [3.5.3](https://github.com/hypeJunction/hypeLists/compare/3.5.2...v3.5.3) (2016-01-24)
 
