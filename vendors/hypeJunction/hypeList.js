@@ -237,7 +237,7 @@
 		 */
 		scrollToTop: function (event, pageIndex, $items) {
 			var self = this;
-			if ($items.length) {
+			if ($items && $items.length) {
 				$('body').animate({scrollTop: $items.first().offset().top + self.options.scrollTopOffset}, 500);
 			}
 		},
