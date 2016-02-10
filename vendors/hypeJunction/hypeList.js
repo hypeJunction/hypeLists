@@ -161,6 +161,12 @@
 				this.addFetchedItems(ajaxData, pageIndex, goToPage);
 			}.bind(self));
 
+			if (self.options.selectorDelete) {
+				$(self.options.selectorDelete).off('click'); // remove confirm handlers in earlier Elgg versions
+				// this will be triggered before event is propagated to $(document)
+				self.$list.off('click.hypeList', self.options.selectorDelete).on('click.hypeList', self.options.selectorDelete, self.deleteItem);
+			}
+
 		},
 		/**
 		 * Set timeout for automatic refresh of the list
@@ -224,7 +230,7 @@
 				}
 				$pageItems.removeClass(self.options.classHidden).addClass(self.options.classVisible);
 			}
-
+			
 			self.$elem.trigger('change', [self.options]);
 		},
 		/**
@@ -605,10 +611,6 @@
 					itemIndex = offset + baseIndex + itIndex;
 					$(this).data('item-index', itemIndex);
 					$(this).appendTo(self.$list);
-					if (self.options.selectorDelete) {
-						$(document).off('click', self.options.selectorDelete)
-								.on('click', self.options.selectorDelete, self.deleteItem);
-					}
 				});
 				self.sortList();
 				$(self).trigger('itemsAdded');
@@ -666,32 +668,42 @@
 		 * @returns {void}
 		 */
 		deleteItem: function (e) {
-			if (e.isDefaultPrevented() || !$(this).closest('.elgg-item').data('item-index')) {
+			if (e.isDefaultPrevented()) {
 				return;
 			}
-			e.preventDefault();
-			if (!$(this).is('[data-confirm],.elgg-requires-confirmation')) {
-				var confirmText = elgg.echo('question:areyousure');
+			// the handler for default confirm has been killed in bindEvents
+			if ($(this).is('[data-confirm],.elgg-requires-confirmation')) {
+				var confirmText = $(this).data('confirm') || elgg.echo('question:areyousure');
 				if (!confirm(confirmText)) {
-					return;
+					return false;
 				}
 			}
 			var $elem = $(this),
+					$list = $elem.closest('.elgg-list,.elgg-gallery'),
 					$item = $elem.closest($elem.closest('.elgg-list,.elgg-gallery').children()),
 					href = $elem.attr('href');
 
 			if (href) {
 				elgg.action($elem.attr('href'), {
 					dataType: 'json',
+					beforeSend: function () {
+						$list.trigger('showLoader');
+					},
+					complete: function () {
+						$list.trigger('hideLoader');
+					},
 					success: function (response) {
 						if (response.status >= 0) {
-							$elem.closest('.elgg-list,.elgg-gallery').hypeList('removeItems', $item);
+							$list.hypeList('removeItems', $item);
 						}
 					}
 				});
 			} else {
 				$elem.closest('.elgg-list,.elgg-gallery').hypeList('removeItems', $item);
 			}
+			// Doing a hard return
+			// Element has been removed, so there is no reason for other handlers to do anything
+			return false;
 		},
 		showLoader: function () {
 			this.$elem.trigger('showLoader');
