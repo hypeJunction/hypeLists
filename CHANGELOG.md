@@ -1,3 +1,14 @@
+<a name="3.5.6"></a>
+## [3.5.6](https://github.com/hypeJunction/hypeLists/compare/3.5.5...v3.5.6) (2016-02-15)
+
+
+### Bug Fixes
+
+* **js:** make sure $items are set ([2357bf9](https://github.com/hypeJunction/hypeLists/commit/2357bf9))
+* **lists:** improve delete logic ([84ea62d](https://github.com/hypeJunction/hypeLists/commit/84ea62d))
+
+
+
 <a name="3.5.5"></a>
 ## [3.5.5](https://github.com/hypeJunction/hypeLists/compare/3.5.4...v3.5.5) (2016-01-25)
 
