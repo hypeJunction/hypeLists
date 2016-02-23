@@ -92,8 +92,4 @@ $('.elgg-list').on('ready', callback);
 // Callback will receive list options as a second parameter
 $('.elgg-list').on('change', callback);
 
-// Event triggered whenever a spinner is shown and hidden
-$('.elgg-list').on('showLoader', callback);
-$('.elgg-list').on('hideLoader', callback);
-
 ```

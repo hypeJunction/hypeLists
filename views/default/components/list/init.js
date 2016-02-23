@@ -15,24 +15,4 @@ define(function (require) {
 			$container.addClass('elgg-state-ready');
 		});
 	});
-
-	$(document).on('showLoader.spinner', '.elgg-list,.elgg-gallery', function () {
-		if (require.defined('elgg/spinner')) {
-			require(['elgg/spinner'], function (spinner) {
-				spinner.start();
-			});
-		} else {
-			var cl = $(this).data('classLoading') || 'elgg-state-loading';
-			$('body').addClass(cl);
-		}
-	}).on('hideLoader.spinner', '.elgg-list,.elgg-gallery', function () {
-		if (require.defined('elgg/spinner')) {
-			require(['elgg/spinner'], function (spinner) {
-				spinner.stop();
-			});
-		} else {
-			var cl = $(this).data('classLoading') || 'elgg-state-loading';
-			$('body').removeClass(cl);
-		}
-	});
 });

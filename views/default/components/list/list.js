@@ -2,7 +2,8 @@ define(function (require) {
 
 	var elgg = require('elgg');
 	var $ = require('jquery');
-
+	var spinner = require('elgg/spinner');
+	
 	/**
 	 * List constructor
 	 *
@@ -672,12 +673,8 @@ define(function (require) {
 			// Element has been removed, so there is no reason for other handlers to do anything
 			return false;
 		},
-		showLoader: function () {
-			this.$elem.trigger('showLoader');
-		},
-		hideLoader: function () {
-			this.$elem.trigger('hideLoader');
-		}
+		showLoader: spinner.start,
+		hideLoader: spinner.stop
 	};
 
 	return hypeList;

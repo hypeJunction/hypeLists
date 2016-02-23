@@ -3,7 +3,8 @@ define('hypeList', [
 	'elgg',
 	'components/list/defaults',
 	'components/list/list',
-	'components/list/pagination'
+	'components/list/pagination',
+	'elgg/spinner'
 ], function ($, elgg, defaults, hypeList, hypeListPagination) {
 
 	/**
