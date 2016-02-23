@@ -38,10 +38,6 @@ elgg_register_event_handler('pagesetup', 'system', __NAMESPACE__ . '\\register_v
  */
 function init() {
 
-	elgg_define_js('hypeList', array(
-		'src' => '/mod/hypeLists/vendors/hypeJunction/hypeList.js',
-		'deps' => array('jquery', 'elgg'),
-	));
 }
 
 /**
@@ -49,13 +45,13 @@ function init() {
  * @return void
  */
 function register_view_hook_handlers() {
-	
+
 	$defaults = array(
 		'page/components/list',
 		'page/components/gallery',
 		'page/components/ajax_list',
 	);
-	
+
 	$views = elgg_trigger_plugin_hook('get_views', 'framework:lists', null, $defaults);
 	foreach ($views as $view) {
 		elgg_register_plugin_hook_handler('view', $view, __NAMESPACE__ . '\\wrap_list_view_hook');
