@@ -79,6 +79,6 @@ function wrap_list_view_hook($hook, $type, $view, $params) {
 		}
 	}
 
-	$view .= elgg_view('js/framework/lists/require');
+	$view .= elgg_view('components/list/require');
 	return elgg_format_element('div', $wrapper_params, $view);
 }
