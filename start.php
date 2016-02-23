@@ -102,7 +102,7 @@ function hypelists_wrap_list_view_hook($hook, $type, $view, $params) {
 		'data-count' => elgg_extract('count', $vars, 0),
 		'data-pagination' => $pagination_type,
 		'data-pagination-position' => elgg_extract('position', $vars, ($pagination_type === 'infinite') ? 'both' : 'after'),
-		'data-pagination-num-pages' => (int) elgg_extract('num_pages', $vars, 10),
+		'data-pagination-num-pages' => (int) elgg_extract('num_pages', $vars, 5),
 		'data-text-no-results' => $no_results_str,
 		'data-limit' => elgg_extract('limit', $vars, 10),
 		'data-offset' => elgg_extract('offset', $vars, 0),

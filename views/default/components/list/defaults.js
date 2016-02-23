@@ -9,7 +9,7 @@ define(function (require) {
 		listId: '', // List identifier unique to the page
 		pagination: 'default', // Pagination type: 'default', 'infinite'
 		paginationPosition: 'after', // Pagination position: 'before', 'after', 'both'
-		paginationNumPages: 10, // Number of page links to display in the pager
+		paginationNumPages: 5, // Number of page links to display in the pager
 		classActive: 'elgg-state-selected', // CSS class for active elements
 		classDisabled: 'elgg-state-disabled', // CSS class for disabled elements
 		classLoading: 'elgg-state-loading', // CSS class for loading elements

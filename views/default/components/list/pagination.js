@@ -3,7 +3,6 @@ define(function (require) {
 	var elgg = require('elgg');
 	var $ = require('jquery');
 	var hypeList = require('components/list/list');
-
 	/**
 	 * hypeListPagination constructor
 	 * Inherits from hypeList constructor
@@ -18,7 +17,6 @@ define(function (require) {
 		hypeList.call(self, element, options);
 		self.$list = $list;
 	};
-
 	/**
 	 * Extended hypeListPagination prototype
 	 */
@@ -50,24 +48,19 @@ define(function (require) {
 
 			var self = this,
 					pages = [],
-					delta = 5;
-
+					delta = 2;
 			self.$elem.children().remove();
-
 			if (self.options.count <= self.options.limit) {
 				return;
 			}
 
 			var $paginationItems = $();
-
 			if (self.options.paginationNumPages > 0) {
 				delta = Math.ceil(self.options.paginationNumPages / 2);
-
 				var start = self.options.activePage - delta - 1;
 				start = start >= 1 ? start : 1;
 				var end = self.options.activePage + delta;
 				end = end <= self.options.totalPages ? end : self.options.totalPages;
-
 				for (var index = start; index <= end; index++) {
 					pages.push(index);
 				}
@@ -86,9 +79,27 @@ define(function (require) {
 			} else {
 				var prev = self.options.activePage > 1 ? self.options.activePage - 1 : 1;
 				$paginationItems = $paginationItems.add(self.buildPaginationItem('prev', prev, false, self.options.activePage === 1));
+				
+				if (start >= 3) {
+					$paginationItems = $paginationItems.add(self.buildPaginationItem('', 1, false, false));
+					if (start === 3) {
+						$paginationItems = $paginationItems.add(self.buildPaginationItem('', 2, false, false));
+					} else {
+						$paginationItems = $paginationItems.add(self.buildPaginationItem('ellipsis', -1, false, true));
+					}
+				}
 
 				for (var i = 0; i < pages.length; i++) {
 					$paginationItems = $paginationItems.add(self.buildPaginationItem('', pages[i], self.options.activePage === pages[i], false));
+				}
+
+				if (end <= self.options.totalPages - 2) {
+					if (end === self.options.totalPages - 2) {
+						$paginationItems = $paginationItems.add(self.buildPaginationItem('', self.options.totalPages - 1, false, false));
+					} else {
+						$paginationItems = $paginationItems.add(self.buildPaginationItem('ellipsis', -1, false, true));
+					}
+					$paginationItems = $paginationItems.add(self.buildPaginationItem('', self.options.totalPages, false, false));
 				}
 
 				var next = self.options.activePage < self.options.totalPages ? self.options.activePage + 1 : self.options.totalPages;
@@ -144,6 +155,9 @@ define(function (require) {
 					attr.rel = 'prev';
 					attr.class = 'elgg-after';
 					break;
+				case 'ellipsis' :
+					itemText = '...';
+					break;
 				default :
 					itemText = pageIndex;
 					break;
@@ -168,7 +182,6 @@ define(function (require) {
 		 */
 		bindEvents: function () {
 			var self = this;
-
 			self.$elem.find('li').each(function () {
 				var $elem = $(this);
 				$elem.off('click.hypeList');
@@ -199,7 +212,5 @@ define(function (require) {
 			this.$list.hypeList('goToPage', pageIndex);
 		}
 	});
-
 	return hypeListPagination;
-
 });
