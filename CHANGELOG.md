@@ -1,3 +1,30 @@
+<a name="4.0.0"></a>
+# [4.0.0](https://github.com/hypeJunction/hypeLists/compare/3.5.6...v4.0.0) (2016-02-23)
+
+
+### Features
+
+* **compat:** drop support for earlier Elgg versions ([c76903d](https://github.com/hypeJunction/hypeLists/commit/c76903d))
+* **js:** rewrite JS to AMD modules ([90149db](https://github.com/hypeJunction/hypeLists/commit/90149db))
+* **pagination:** always add first and last page with ellipsis to the pagination ([86226c0](https://github.com/hypeJunction/hypeLists/commit/86226c0))
+* **spinner:** use core spinner ([65e8f3e](https://github.com/hypeJunction/hypeLists/commit/65e8f3e))
+* **usability:** move list classes into a standlone library ([58e804b](https://github.com/hypeJunction/hypeLists/commit/58e804b))
+* **usability:** rearrange handlers ([3ddbf01](https://github.com/hypeJunction/hypeLists/commit/3ddbf01))
+
+
+### BREAKING CHANGES
+
+* spinner: showLoader and hideLoader events are no longer triggered. Core elgg/spinner is
+used instead.
+* usability: List classes are no longer included in the plugin. Use hypejunction/api-lists
+in your project if you are using those classes
+* usability: hypeJunction\Lists namespace has been dropped, and handlers have been
+prefixed with hypelists_ instead.
+lib/hooks.php has been merged with start.php
+* compat: The plugin now requires at least Elgg 2.0
+
+
+
 <a name="3.5.6"></a>
 ## [3.5.6](https://github.com/hypeJunction/hypeLists/compare/3.5.5...v3.5.6) (2016-02-15)
 
