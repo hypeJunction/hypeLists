@@ -42,6 +42,7 @@ function hypelists_init() {
 	$views = elgg_trigger_plugin_hook('get_views', 'framework:lists', null, $defaults);
 	foreach ($views as $view) {
 		elgg_register_plugin_hook_handler('view', $view, 'hypelists_wrap_list_view_hook');
+		elgg_register_plugin_hook_handler('view_vars', $view, 'hypelists_filter_vars');
 	}
 }
 
@@ -122,4 +123,27 @@ function hypelists_wrap_list_view_hook($hook, $type, $view, $params) {
 
 	$view .= elgg_view('components/list/require');
 	return elgg_format_element('div', $wrapper_params, $view);
+}
+
+/**
+ * Filters some of the view vars
+ *
+ * @param string $hook   "view_vars"
+ * @param string $type   List view name
+ * @param array  $vars   View vars
+ * @param array  $params Hook params
+ * @return array
+ */
+function hypelists_filter_vars($hook, $type, $vars, $params) {
+
+	if (empty($vars['base_url'])) {
+		// navigation/pagination sets this to Referrer on XHR calls
+		// that causes trouble
+		$vars['base_url'] = current_page_url();
+	}
+
+	// Need absolute URL (embed causes trouble)
+	$vars['base_url'] = elgg_normalize_url($vars['base_url']);
+
+	return $vars;
 }
