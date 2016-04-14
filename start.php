@@ -108,7 +108,7 @@ function hypelists_wrap_list_view_hook($hook, $type, $view, $params) {
 		'data-limit' => elgg_extract('limit', $vars, 10),
 		'data-offset' => elgg_extract('offset', $vars, 0),
 		'data-offset-key' => elgg_extract('offset_key', $vars, 'offset'),
-		'data-lazy-load' => (int) elgg_extract('lazy_load', $vars, 6),
+		'data-lazy-load' => (int) elgg_extract('lazy_load', $vars, 0),
 		'data-auto-refresh' => elgg_extract('auto_refresh', $vars, false),
 		'data-reversed' => elgg_extract('reversed', $vars, false),
 		'data-list-time' => get_input('list_time', time()),
