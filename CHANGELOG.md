@@ -1,3 +1,13 @@
+<a name="4.0.1"></a>
+## [4.0.1](https://github.com/hypeJunction/hypeLists/compare/4.0.0...v4.0.1) (2016-04-14)
+
+
+### Bug Fixes
+
+* **views:** make sure all lists have a base_url ([3977132](https://github.com/hypeJunction/hypeLists/commit/3977132))
+
+
+
 <a name="4.0.0"></a>
 # [4.0.0](https://github.com/hypeJunction/hypeLists/compare/3.5.6...v4.0.0) (2016-02-23)
 

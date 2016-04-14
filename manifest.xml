@@ -3,7 +3,7 @@
 
 	<name>hypeLists</name>
 	<id>hypeLists</id>
-	<version type="dist">4.0.0</version>
+	<version type="dist">4.0.1</version>
 
 	<description>Developer tools for managing and ajaxifying lists</description>
 	<category>lists</category>
