@@ -1,3 +1,14 @@
+<a name="4.0.2"></a>
+## [4.0.2](https://github.com/hypeJunction/hypeLists/compare/4.0.1...v4.0.2) (2016-04-14)
+
+
+### Bug Fixes
+
+* **lists:** do not lazy load pages by default ([0883468](https://github.com/hypeJunction/hypeLists/commit/0883468))
+* **lists:** strip limit and offset from base_url ([de63df4](https://github.com/hypeJunction/hypeLists/commit/de63df4))
+
+
+
 <a name="4.0.1"></a>
 ## [4.0.1](https://github.com/hypeJunction/hypeLists/compare/4.0.0...v4.0.1) (2016-04-14)
 
