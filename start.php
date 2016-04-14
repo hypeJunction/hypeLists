@@ -144,6 +144,9 @@ function hypelists_filter_vars($hook, $type, $vars, $params) {
 
 	// Need absolute URL (embed causes trouble)
 	$vars['base_url'] = elgg_normalize_url($vars['base_url']);
+	
+	$vars['base_url'] = elgg_http_remove_url_query_element($vars['base_url'], 'limit');
+	$vars['base_url'] = elgg_http_remove_url_query_element($vars['base_url'], 'offset');
 
 	return $vars;
 }
