@@ -79,6 +79,8 @@ function hypelists_wrap_list_view_hook($hook, $type, $view, $params) {
 		$list_classes[] = $vars['list_class'];
 	}
 
+	$base_url = hypelists_prepare_base_url(elgg_extract('base_url', $vars));
+
 	$list_id = (isset($vars['list_id'])) ? $vars['list_id'] : '';
 	if (!$list_id) {
 		$list_id = md5(serialize(array(
@@ -86,8 +88,8 @@ function hypelists_wrap_list_view_hook($hook, $type, $view, $params) {
 			implode(' ', $list_classes),
 			elgg_extract('item_class', $vars),
 			$no_results_str,
-			elgg_extract('pagination', $vars),
-			elgg_extract('base_url', $vars),
+			$pagination,
+			$base_url,
 		)));
 	}
 
@@ -99,7 +101,7 @@ function hypelists_wrap_list_view_hook($hook, $type, $view, $params) {
 	$wrapper_params = array(
 		'class' => implode(' ', $container_class),
 		'data-list-id' => $list_id,
-		'data-base-url' => elgg_extract('base_url', $vars),
+		'data-base-url' => $base_url,
 		'data-count' => elgg_extract('count', $vars, 0),
 		'data-pagination' => $pagination_type,
 		'data-pagination-position' => elgg_extract('position', $vars, ($pagination_type === 'infinite') ? 'both' : 'after'),
@@ -136,17 +138,29 @@ function hypelists_wrap_list_view_hook($hook, $type, $view, $params) {
  */
 function hypelists_filter_vars($hook, $type, $vars, $params) {
 
-	if (empty($vars['base_url'])) {
+	$vars['base_url'] = hypelists_prepare_base_url(elgg_extract('base_url', $vars));
+	return $vars;
+}
+
+/**
+ * Normalize base_url
+ *
+ * @param string $base_url Base URL
+ * @return string
+ */
+function hypelists_prepare_base_url($base_url = null) {
+
+	if (empty($base_url)) {
 		// navigation/pagination sets this to Referrer on XHR calls
 		// that causes trouble
-		$vars['base_url'] = current_page_url();
+		$base_url = current_page_url();
 	}
 
 	// Need absolute URL (embed causes trouble)
-	$vars['base_url'] = elgg_normalize_url($vars['base_url']);
+	$base_url = elgg_normalize_url($base_url);
 	
-	$vars['base_url'] = elgg_http_remove_url_query_element($vars['base_url'], 'limit');
-	$vars['base_url'] = elgg_http_remove_url_query_element($vars['base_url'], 'offset');
+	$base_url = elgg_http_remove_url_query_element($base_url, 'limit');
+	$base_url = elgg_http_remove_url_query_element($base_url, 'offset');
 
-	return $vars;
+	return $base_url;
 }
