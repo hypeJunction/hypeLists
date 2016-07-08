@@ -3,7 +3,7 @@ define(function (require) {
 	var elgg = require('elgg');
 	var $ = require('jquery');
 	var spinner = require('elgg/spinner');
-	
+
 	/**
 	 * List constructor
 	 *
@@ -58,7 +58,7 @@ define(function (require) {
 		constructor: hypeList,
 		/**
 		 * Check if method is public
-		 * 
+		 *
 		 * @param {string} method Method name
 		 * @returns {array}
 		 */
@@ -313,8 +313,7 @@ define(function (require) {
 				return self.showPage(pageIndex);
 			}
 
-			self.showLoader();
-			self.loadPage(pageIndex, null, function (pageIndex) {
+			self.loadPage(pageIndex, self.showLoader, function (pageIndex) {
 				self.options.activePage = pageIndex;
 				self.options.visiblePages = [self.options.activePage];
 				self.hideLoader();
@@ -335,21 +334,21 @@ define(function (require) {
 
 			if (pageIndex > Math.max.apply(null, self.options.visiblePages)) {
 				for (var i = Math.max.apply(null, self.options.visiblePages); i <= pageIndex; i++) {
-					self.loadPage(i, null, function (i) {
+					self.loadPage(i, self.showLoader, function (i) {
 						self.options.visiblePages.push(i);
+						self.hideLoader();
 					});
 				}
 			} else {
 				for (var i = Math.min.apply(null, self.options.visiblePages); i >= pageIndex; i--) {
-					self.loadPage(i, null, function (i) {
+					self.loadPage(i, self.showLoader, function (i) {
 						self.options.visiblePages.push(i);
+						self.hideLoader();
 					});
 				}
 			}
 
-			self.loadPage(pageIndex, function () {
-				self.showLoader();
-			}, function (pageIndex) {
+			self.loadPage(pageIndex, self.showLoader, function (pageIndex) {
 				self.options.activePage = pageIndex;
 				self.hideLoader();
 				$(self).trigger('pageShown', [pageIndex]);
