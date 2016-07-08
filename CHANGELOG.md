@@ -1,3 +1,14 @@
+<a name="4.0.4"></a>
+## [4.0.4](https://github.com/hypeJunction/hypeLists/compare/4.0.3...v4.0.4) (2016-07-08)
+
+
+### Bug Fixes
+
+* **lists:** more reliable base_url normalization ([87608a8](https://github.com/hypeJunction/hypeLists/commit/87608a8)), closes [#22](https://github.com/hypeJunction/hypeLists/issues/22)
+* **lists:** spinner is again shown when loading infinite lists ([71c30f7](https://github.com/hypeJunction/hypeLists/commit/71c30f7))
+
+
+
 <a name="4.0.3"></a>
 ## [4.0.3](https://github.com/hypeJunction/hypeLists/compare/4.0.2...v4.0.3) (2016-07-08)
 
