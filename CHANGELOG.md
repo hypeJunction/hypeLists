@@ -1,3 +1,13 @@
+<a name="4.1.0"></a>
+# [4.1.0](https://github.com/hypeJunction/hypeLists/compare/4.0.4...v4.1.0) (2016-09-11)
+
+
+### Features
+
+* **lists:** adds an interface for building sortable and searchable lists ([ae3fce9](https://github.com/hypeJunction/hypeLists/commit/ae3fce9))
+
+
+
 <a name="4.0.4"></a>
 ## [4.0.4](https://github.com/hypeJunction/hypeLists/compare/4.0.3...v4.0.4) (2016-07-08)
 
