@@ -1,0 +1,24 @@
+.elgg-sortable-list-fieldset {
+	display: flex;
+	align-items: flex-start;
+	justify-content: flex-end;
+}
+.elgg-sortable-list-fieldset > .elgg-field {
+	flex: 0 1 auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin: 0;
+	padding: 5px;
+}
+.elgg-sortable-list-fieldset > .elgg-field.elgg-sortable-list-query-field {
+	flex: 1 1 auto;
+}
+.elgg-sortable-list-fieldset > .elgg-field > .elgg-field-label {
+    margin-right: 5px;
+}
+.elgg-sortable-list-form-toggle {
+    display: inline-block;
+    width: 100%;
+    text-align: right;
+}

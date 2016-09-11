@@ -44,6 +44,8 @@ function hypelists_init() {
 		elgg_register_plugin_hook_handler('view', $view, 'hypelists_wrap_list_view_hook');
 		elgg_register_plugin_hook_handler('view_vars', $view, 'hypelists_filter_vars');
 	}
+
+	elgg_extend_view('elgg.css', 'forms/lists/sort.css');
 }
 
 /**

@@ -10,7 +10,7 @@ A set of tools that improve UX and simplify common list patterns for developers.
 - AJAXed list pagination and infinite scroll
 - Lazy loading of preceeding and succeeding list pages
 - Auto refreshing of lists
-
+- An interface for creating sortable/searchable lists
 
 ### Server-Side
 
@@ -91,5 +91,60 @@ $('.elgg-list').on('ready', callback);
 // Event triggered whenever an item is added, removed or hidden from a list
 // Callback will receive list options as a second parameter
 $('.elgg-list').on('change', callback);
+
+```
+
+### Sortable list views
+
+Sortable lists can be displayed using one of the following views:
+   - `lists/users` - displays a list of users
+   - `lists/objects` - displays a list of object entities
+   - `lists/groups` - displays a list of groups
+
+Lists can be configured to display search/sort fields:
+
+```php
+
+echo elgg_view('lists/objects', [
+	// Options passed to elgg_list_entities()
+	'options' => [
+		'subtypes' => ['blog', 'bookmarks', 'file'],
+		'container_guids' => $group->guid,
+	],
+
+	// Display a subtype picker
+	'show_subtype' => true,
+	'subtype_options' => ['blog', 'bookmarks', 'file'],
+
+	// Display a sorting picker
+	'show_sort' => true,
+	'sort_options' => [
+		'likes::asc',
+		'likes::desc',
+		'time_created:desc',
+		'alpha::asc',
+	],
+
+	// Force default sorting
+	'sort' => get_input('sort', 'alpha::asc'),
+
+	// Display a search form
+	'show_search' => true,
+
+	// Force default query
+	'query' => get_input('query', 'test'),
+
+	// Add a filter
+	'show_filter' => true,
+	'filter_options' => [
+		'mine',
+		'friends',
+		'custom_filter', // use hooks to append custom queries
+	],
+
+	// Force default filter
+	'filter' => get_input('filter', 'friends'),
+
+]);
 
 ```

@@ -17,5 +17,20 @@
 		<type>elgg_release</type>
 		<version>2.0</version>
 	</requires>
+
+	<provides>
+		<type>plugin</type>
+		<name>user_sort</name>
+	</provides>
+
+	<provides>
+		<type>plugin</type>
+		<name>object_sort</name>
+	</provides>
+
+	<provides>
+		<type>plugin</type>
+		<name>group_sort</name>
+	</provides>
 	
 </plugin_manifest>
