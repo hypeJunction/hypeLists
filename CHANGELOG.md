@@ -1,3 +1,14 @@
+<a name="4.1.1"></a>
+## [4.1.1](https://github.com/hypeJunction/hypeLists/compare/4.1.0...v4.1.1) (2016-09-12)
+
+
+### Bug Fixes
+
+* **js:** correctly toggle form after sort/search action ([2ea177c](https://github.com/hypeJunction/hypeLists/commit/2ea177c))
+* **ui:** expand search form by default ([ce47684](https://github.com/hypeJunction/hypeLists/commit/ce47684))
+
+
+
 <a name="4.1.0"></a>
 # [4.1.0](https://github.com/hypeJunction/hypeLists/compare/4.0.4...v4.1.0) (2016-09-11)
 

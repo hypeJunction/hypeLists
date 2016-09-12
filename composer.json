@@ -1,6 +1,6 @@
 {
 	"name": "hypejunction/hypelists",
-	"version": "4.1.0",
+	"version": "4.1.1",
 	"type": "elgg-plugin",
 	"description": "AJAX lists for Elgg",
 	"homepage": "http://hypejunction.com/",
