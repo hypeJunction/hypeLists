@@ -31,7 +31,7 @@ define(function (require) {
 					$container.replaceWith($new);
 				}
 				// expand the form
-				$form.find('.elgg-sortable-list-form-toggle').trigger('click');
+				$('.elgg-sortable-list-form-toggle', $new).trigger('click');
 			}
 		});
 
