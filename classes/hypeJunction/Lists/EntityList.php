@@ -532,7 +532,7 @@ abstract class EntityList {
 				'sort_options' => $sort_options,
 				'filter_options' => $filter_options,
 				'subtype_options' => $subtype_options,
-				'expand_form' => elgg_extract('expand_form', $options, false),
+				'expand_form' => elgg_extract('expand_form', $options),
 			];
 
 			$form = elgg_view_form('lists/sort', array(
