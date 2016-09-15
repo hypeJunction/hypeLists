@@ -1,3 +1,13 @@
+<a name="4.1.2"></a>
+## [4.1.2](https://github.com/hypeJunction/hypeLists/compare/4.1.1...v4.1.2) (2016-09-15)
+
+
+### Bug Fixes
+
+* **js:** list events should not bubble up the DOM tree ([217cbe0](https://github.com/hypeJunction/hypeLists/commit/217cbe0))
+
+
+
 <a name="4.1.1"></a>
 ## [4.1.1](https://github.com/hypeJunction/hypeLists/compare/4.1.0...v4.1.1) (2016-09-12)
 
