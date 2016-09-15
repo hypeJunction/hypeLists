@@ -117,15 +117,19 @@ define(function (require) {
 			self.$list.off('.hypeList');
 
 			self.$list.on('goToPage.hypeList', function (e, pageIndex) {
+				e.stopPropagation();
 				this.goToPage(pageIndex);
 			}.bind(self));
 			self.$list.on('refresh.hypeList fetchNewItems.hypeList', function (e, pageIndex, goToPage) {
+				e.stopPropagation();
 				this.fetchNewItems(pageIndex, goToPage);
 			}.bind(self));
 			self.$list.on('removeItems.hypeList', function (e, $items) {
+				e.stopPropagation();
 				this.removeItems($items);
 			}.bind(self));
 			self.$list.on('addFetchedItems.hypeList', function (e, ajaxData, pageIndex, goToPage) {
+				e.stopPropagation();
 				this.addFetchedItems(ajaxData, pageIndex, goToPage);
 			}.bind(self));
 
