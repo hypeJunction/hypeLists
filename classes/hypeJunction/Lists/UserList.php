@@ -277,6 +277,11 @@ class UserList extends EntityList {
 							AND guid_two = $guid)
 					";
 				break;
+
+			case 'online' :
+				$time = time() - 600;
+				$options['wheres'][] = "users_entity.last_action >= $time";
+				break;
 		}
 
 		$params = array(
