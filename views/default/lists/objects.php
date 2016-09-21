@@ -20,6 +20,11 @@
 
 $object_list = new \hypeJunction\Lists\ObjectList();
 
+if (isset($vars['rel']) && !isset($vars['filter'])) {
+	// honor old param
+	$vars['filter'] = $vars['rel'];
+}
+
 unset($vars['callback']); // BC junk
 
 $options = (array) elgg_extract('options', $vars);
