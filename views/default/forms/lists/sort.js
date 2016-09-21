@@ -28,10 +28,9 @@ define(function (require) {
 				if ($new.length === 0) {
 					elgg.register_error(elgg.echo('sort:search:empty'));
 				} else {
-					$container.replaceWith($new);
+					var $list = $new.find('.elgg-sortable-list-view');
+					$container.find('.elgg-sortable-list-view').replaceWith($list);
 				}
-				// expand the form
-				$('.elgg-sortable-list-form-toggle', $new).trigger('click');
 			}
 		});
 

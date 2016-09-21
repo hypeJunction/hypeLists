@@ -63,9 +63,9 @@ if (!isset($options['show_sort'])) {
 list($sort_field, $sort_direction) = explode('::', $sort);
 
 $group_list->setOptions($options)
-->addSort($sort_field, $sort_direction)
-->addFilter($filter, $target)
-->setQuery($query);
+	->addSort($sort_field, $sort_direction)
+	->addFilter($filter, $target)
+	->setQuery($query);
 
 echo $group_list->render();
 

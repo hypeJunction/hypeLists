@@ -60,9 +60,9 @@ if (!isset($options['show_sort'])) {
 list($sort_field, $sort_direction) = explode('::', $sort);
 
 $user_list->setOptions($options)
-->addSort($sort_field, $sort_direction)
-->addFilter($filter, $target)
-->setQuery($query);
+	->addSort($sort_field, $sort_direction)
+	->addFilter($filter, $target)
+	->setQuery($query);
 
 echo $user_list->render();
 

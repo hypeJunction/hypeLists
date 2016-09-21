@@ -493,7 +493,10 @@ abstract class EntityList {
 		$options['list_id'] = $this->getId();
 
 		$list = elgg_list_entities($options, $this->getter);
-
+		$list = elgg_format_element('div', [
+			'class' => 'elgg-sortable-list-view',
+		], $list);
+		
 		if (empty($this->search_query) && empty($this->filters) && !preg_match_all("/<ul.*>.*<\/ul>/s", $list)) {
 			// List is empty
 			return $list;
