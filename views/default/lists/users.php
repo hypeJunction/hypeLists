@@ -15,7 +15,7 @@
  * $uses $vars['show_subtype']    Show subtype picker
  * @uses $vars['subtype_options'] Subtype options
  * @uses $vars['entity_subtype']  Selected subtype
- * @uses $vars['group']           Group entity (for filtering)
+ * @uses $vars['filter_target']   Group entity (for filtering)
  */
 $user_list = new \hypeJunction\Lists\UserList();
 
@@ -38,11 +38,11 @@ unset($vars['query']);
 $sort = elgg_extract('sort', $vars, get_input('sort', 'alpha::asc'));
 unset($vars['sort']);
 
-$target = elgg_extract('group', $vars, elgg_get_page_owner_entity());
-unset($vars['group']);
-if (!$target) {
-	$target = elgg_get_logged_in_user_entity();
+if (!isset($vars['filter_target']) && isset($vars['group'])) {
+	$vars['filter_target'] = $vars['group'];
 }
+$target = elgg_extract('filter_target', $vars, elgg_get_page_owner_entity());
+unset($vars['filter_target']);
 
 $subtype = elgg_extract('entity_subtype', $vars, get_input('entity_subtype'));
 if (!in_array($subtype, $user_list->getSubtypeOptions())) {
