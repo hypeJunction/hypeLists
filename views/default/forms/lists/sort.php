@@ -103,6 +103,7 @@ echo elgg_view_input('hidden', [
 
 echo elgg_view_input('submit', [
 	'class' => 'hidden',
+	'field_class' => 'hidden',
 ]);
 ?>
 <script>
