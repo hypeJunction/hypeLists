@@ -1,3 +1,21 @@
+<a name="4.1.3"></a>
+## [4.1.3](https://github.com/hypeJunction/hypeLists/compare/4.1.2...v4.1.3) (2016-09-21)
+
+
+### Bug Fixes
+
+* **bc:** honor legacy "rel" parameter in lists ([85dc5ba](https://github.com/hypeJunction/hypeLists/commit/85dc5ba))
+* **forms:** hide field containing hidden submit button ([d74a950](https://github.com/hypeJunction/hypeLists/commit/d74a950))
+* **forms:** override bottom margins on the sort fieldset ([f46284f](https://github.com/hypeJunction/hypeLists/commit/f46284f))
+* **js:** on ajax response only replace the list view instead of the entire container ([d367b17](https://github.com/hypeJunction/hypeLists/commit/d367b17))
+* **lists:** filter target should be passed explicitly ([e5c8c82](https://github.com/hypeJunction/hypeLists/commit/e5c8c82))
+
+### Features
+
+* **users:** add a filter to get users by online status ([c409170](https://github.com/hypeJunction/hypeLists/commit/c409170))
+
+
+
 <a name="4.1.2"></a>
 ## [4.1.2](https://github.com/hypeJunction/hypeLists/compare/4.1.1...v4.1.2) (2016-09-15)
 
