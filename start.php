@@ -125,8 +125,8 @@ function hypelists_wrap_list_view_hook($hook, $type, $view, $params) {
 		}
 	}
 
-	$view .= elgg_view('components/list/require');
-	return elgg_format_element('div', $wrapper_params, $view);
+	$script = elgg_view('components/list/require');
+	return elgg_format_element('div', $wrapper_params, $view) . $script;
 }
 
 /**
