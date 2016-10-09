@@ -38,6 +38,7 @@ define(function (require) {
 
 		self.options.offsetKey = self.options.offsetKey || 'offset';
 
+		self.options.pager = self.options.pager || 'visible';
 		self.options.pagination = self.options.pagination || 'default';
 		self.options.paginationPosition = self.options.paginationPosition || 'after';
 
@@ -99,7 +100,12 @@ define(function (require) {
 				self.$list.after($after);
 			}
 
-			self.$pagination = self.$list.siblings('.elgg-pagination').show();
+			self.$pagination = self.$list.siblings('.elgg-pagination');
+			if (self.options.pager === 'visible') {
+				self.$pagination.show();
+			} else {
+				self.$pagination.hide();
+			}
 		},
 		/**
 		 * Event binding

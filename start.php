@@ -105,6 +105,7 @@ function hypelists_wrap_list_view_hook($hook, $type, $view, $params) {
 		'data-list-id' => $list_id,
 		'data-base-url' => $base_url,
 		'data-count' => elgg_extract('count', $vars, 0),
+		'data-pager' => $pagination ? 'visible' : 'hidden',
 		'data-pagination' => $pagination_type,
 		'data-pagination-position' => elgg_extract('position', $vars, ($pagination_type === 'infinite') ? 'both' : 'after'),
 		'data-pagination-num-pages' => (int) elgg_extract('num_pages', $vars, 5),
