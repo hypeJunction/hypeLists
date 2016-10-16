@@ -1,3 +1,16 @@
+<a name="4.1.4"></a>
+## [4.1.4](https://github.com/hypeJunction/hypeLists/compare/4.1.3...v4.1.4) (2016-10-16)
+
+
+### Bug Fixes
+
+* **lists:** only display pager navigation if explicitly set ([1d39775](https://github.com/hypeJunction/hypeLists/commit/1d39775))
+* **lists:** wrap all lists that specify pagination type even if pagination is not required ([aec6d2b](https://github.com/hypeJunction/hypeLists/commit/aec6d2b))
+* **views:** no longer WSODs in script mode ([496df99](https://github.com/hypeJunction/hypeLists/commit/496df99))
+* **views:** script tag should go outside of the list wrapper ([5cae885](https://github.com/hypeJunction/hypeLists/commit/5cae885))
+
+
+
 <a name="4.1.3"></a>
 ## [4.1.3](https://github.com/hypeJunction/hypeLists/compare/4.1.2...v4.1.3) (2016-09-21)
 
