@@ -42,6 +42,9 @@ if (!isset($vars['filter_target']) && isset($vars['user'])) {
 }
 $target = elgg_extract('filter_target', $vars, elgg_get_page_owner_entity());
 unset($vars['filter_target']);
+if (!$target instanceof ElggEntity) {
+	$target = null;
+}
 
 $subtype = elgg_extract('entity_subtype', $vars, get_input('entity_subtype'));
 if (!in_array($subtype, $group_list->getSubtypeOptions())) {
