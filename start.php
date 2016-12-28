@@ -33,6 +33,10 @@ elgg_register_event_handler('init', 'system', 'hypelists_init');
  * @return void
  */
 function hypelists_init() {
+        if (elgg_in_context("admin")) {
+              return;
+        }
+
 	$defaults = array(
 		'page/components/list',
 		'page/components/gallery',
