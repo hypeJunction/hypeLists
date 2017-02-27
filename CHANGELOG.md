@@ -1,3 +1,13 @@
+<a name="4.1.5"></a>
+## [4.1.5](https://github.com/hypeJunction/hypeLists/compare/4.1.4...v4.1.5) (2017-02-27)
+
+
+### Bug Fixes
+
+* **lists:** do not wrap lists that set pagination to false explicitly ([a874cde](https://github.com/hypeJunction/hypeLists/commit/a874cde))
+
+
+
 <a name="4.1.4"></a>
 ## [4.1.4](https://github.com/hypeJunction/hypeLists/compare/4.1.3...v4.1.4) (2016-10-16)
 
