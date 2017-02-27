@@ -66,11 +66,15 @@ function hypelists_wrap_list_view_hook($hook, $type, $view, $params) {
 
 	$vars = elgg_extract('vars', $params);
 
-	$pagination = elgg_extract('pagination', $vars, false);
+	$pagination = elgg_extract('pagination', $vars);
 	$pagination_type = elgg_extract('pagination_type', $vars, elgg_get_plugin_setting('pagination_type', 'hypeLists'));
 
+	if ($pagination === false) {
+		return;
+	}
+	
 	if (!$pagination && !$pagination_type) {
-		return $view;
+		return;
 	}
 
 	$no_results = elgg_extract('no_results', $vars, '');
