@@ -169,9 +169,11 @@ define(function (require) {
 			if (self.timeout) {
 				clearTimeout(self.timeout);
 			}
+
+			// We are adding a random offset of 0 to 10s so that multiple lists don't fire all at the same time
 			self.timeout = setTimeout(function () {
 				self.fetchNewItems.apply(self, []);
-			}, self.options.autoRefresh * 1000);
+			}, self.options.autoRefresh * 1000 + Math.round(Math.random() * 10000));
 		},
 		/**
 		 * Trigger init event
