@@ -1,3 +1,13 @@
+<a name="4.1.6"></a>
+## [4.1.6](https://github.com/hypeJunction/hypeLists/compare/4.1.5...v4.1.6) (2017-04-21)
+
+
+### Bug Fixes
+
+* **ajax:** throttle simulatenous ajax requests ([3eea0fe](https://github.com/hypeJunction/hypeLists/commit/3eea0fe))
+
+
+
 <a name="4.1.5"></a>
 ## [4.1.5](https://github.com/hypeJunction/hypeLists/compare/4.1.4...v4.1.5) (2017-02-27)
 
