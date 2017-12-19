@@ -492,7 +492,14 @@ abstract class EntityList {
 		$options['base_url'] = $this->getBaseURL();
 		$options['list_id'] = $this->getId();
 
+		if ($type == 'group' && $options['rel'] == 'invited') {
+			$ia = elgg_set_ignore_access(true);
+		}
+
 		$list = elgg_list_entities($options, $this->getter);
+
+		if (isset($ia)) elgg_set_ignore_access($ia);		
+
 		$list = elgg_format_element('div', [
 			'class' => 'elgg-sortable-list-view',
 		], $list);
