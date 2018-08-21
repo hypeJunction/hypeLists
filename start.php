@@ -24,7 +24,6 @@
  * this program; if not, it can be found here:
  * http://www.gnu.org/licenses/gpl-2.0.html
  */
-require_once __DIR__ . '/autoloader.php';
 
 elgg_register_event_handler('init', 'system', 'hypelists_init');
 
