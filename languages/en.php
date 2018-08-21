@@ -1,6 +1,6 @@
 <?php
 
-$english = array(
+return [
 	'lists:settings:pagination_type' => 'Default pagination type',
 	'lists:settings:pagination_type:help' => 'Setting this option will replace pagination with an ajaxed alternative across your site.
 		If such behavior is not desired, please consult the README to learn how to achieve this behavior programatically.',
@@ -71,6 +71,4 @@ $english = array(
 	'sort:settings:object' => 'Object sorting',
 	'sort:menu:filter' => 'Search and filter',
 	'sort:search:empty' => 'No results matching your query',
-);
-
-add_translation("en", $english);
+];
