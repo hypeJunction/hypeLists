@@ -1,3 +1,14 @@
+<a name="4.1.7"></a>
+## [4.1.7](https://github.com/hypeJunction/hypeLists/compare/4.1.6...v4.1.7) (2019-07-30)
+
+
+### Bug Fixes
+
+* **groups:** fix group list sorting ([8d7c749](https://github.com/hypeJunction/hypeLists/commit/8d7c749))
+* **i18n:** correct return value in language file ([3125582](https://github.com/hypeJunction/hypeLists/commit/3125582))
+
+
+
 <a name="4.1.6"></a>
 ## [4.1.6](https://github.com/hypeJunction/hypeLists/compare/4.1.5...v4.1.6) (2017-04-21)
 
